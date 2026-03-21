@@ -38,6 +38,50 @@ const navObserver = new IntersectionObserver(
 sections.forEach((section) => navObserver.observe(section));
 
 // ============================================================
+// Lightbox
+// ============================================================
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('.lightbox-img');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+const lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  lightboxClose.focus();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.project-screenshot').forEach((el) => {
+  el.addEventListener('click', () => {
+    const img = el.querySelector('img');
+    openLightbox(img.src, img.alt);
+  });
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const img = el.querySelector('img');
+      openLightbox(img.src, img.alt);
+    }
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxBackdrop.addEventListener('click', closeLightbox);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+    closeLightbox();
+  }
+});
+
+// ============================================================
 // Nav shadow on scroll
 // ============================================================
 const nav = document.getElementById('nav');

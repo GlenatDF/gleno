@@ -433,16 +433,49 @@ h1, h2, h3 {
 
 .project-screenshot {
   flex-shrink: 0;
-  height: 160px;
+  height: 180px;
+  background: #060c14;
   border-bottom: 1px solid var(--border);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
 }
 
 .project-screenshot img {
   display: block;
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  object-position: top left;
+  max-width: 100%;
+  max-height: 152px;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.project-screenshot:hover img {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.project-screenshot::after {
+  content: 'click to enlarge';
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.project-screenshot:hover::after {
+  opacity: 1;
 }
 
 .project-card-inner {
@@ -816,5 +849,79 @@ h1, h2, h3 {
 
   .stat-card {
     flex: none;
+  }
+}
+
+/* ============================================================
+   LIGHTBOX
+============================================================ */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.lightbox-img {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+  animation: lightboxIn 0.2s ease;
+}
+
+@keyframes lightboxIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 720px) {
+  .project-screenshot {
+    height: 150px;
+  }
+  .project-screenshot img {
+    max-height: 122px;
   }
 }

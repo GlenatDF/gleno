@@ -146,7 +146,7 @@
       <div class="projects-grid">
 
         <div class="project-card reveal">
-          <div class="project-screenshot">
+          <div class="project-screenshot" role="button" tabindex="0" aria-label="View projectTrack screenshot">
             <img src="images/project-track.png" alt="projectTrack dashboard screenshot">
           </div>
           <div class="project-card-inner">
@@ -175,7 +175,7 @@
         </div>
 
         <div class="project-card reveal">
-          <div class="project-screenshot">
+          <div class="project-screenshot" role="button" tabindex="0" aria-label="View InvoiceReady screenshot">
             <img src="images/invoice-ready.png" alt="InvoiceReady validation interface screenshot">
           </div>
           <div class="project-card-inner">
@@ -486,6 +486,13 @@
       <p class="footer-text">Glen Naysmith &nbsp;&middot;&nbsp; Christchurch, New Zealand &nbsp;&middot;&nbsp; <a href="mailto:g.naysmith@gmail.com">g.naysmith@gmail.com</a></p>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+    <div class="lightbox-backdrop"></div>
+    <button class="lightbox-close" aria-label="Close preview">&times;</button>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 
   <script src="script.js"></script>
 </body>
