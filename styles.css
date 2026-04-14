@@ -344,8 +344,12 @@ h1, h2, h3 {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.9;
-  margin-bottom: 40px;
-  /* Gradient from near-white to a cool blue-white */
+  /* Descenders (y, g, p…) extend below the tight line-height's content box.
+     padding-bottom pushes the gradient clip boundary far enough below the
+     last baseline to fully include them. margin-bottom is reduced to
+     compensate so the gap to the tagline stays the same visually. */
+  padding-bottom: 0.22em;
+  margin-bottom: 16px;
   background: linear-gradient(160deg, #f2f8ff 25%, #a8ccf0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
