@@ -296,11 +296,11 @@ h1, h2, h3 {
 ============================================================ */
 .hero {
   position: relative;
-  min-height: 78vh;
+  min-height: 68vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 104px 0 72px;
+  padding: 88px 0 48px;
 }
 
 .hero-bg {
@@ -374,7 +374,7 @@ h1, h2, h3 {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 760px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
@@ -408,11 +408,11 @@ h1, h2, h3 {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 8vw, 7.2rem);
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 1;
-  margin-bottom: 22px;
+  line-height: 0.96;
+  margin-bottom: 16px;
   background: linear-gradient(160deg, #f2f8ff 25%, #a8ccf0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -420,11 +420,11 @@ h1, h2, h3 {
 }
 
 .hero-tagline {
-  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  font-size: clamp(1rem, 1.45vw, 1.06rem);
   color: var(--text-muted);
-  line-height: 1.75;
-  margin-bottom: 20px;
-  max-width: 580px;
+  line-height: 1.72;
+  margin-bottom: 16px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -436,7 +436,7 @@ h1, h2, h3 {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-dim);
-  margin-bottom: 36px;
+  margin-bottom: 28px;
   letter-spacing: 0.05em;
 }
 
@@ -445,26 +445,12 @@ h1, h2, h3 {
   flex-shrink: 0;
 }
 
-.hero-actions {
+hero-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-/* Editorial rule between name and tagline */
-.hero-rule {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--border-bright) 20%,
-    var(--border-bright) 80%,
-    transparent
-  );
-  max-width: 480px;
-  margin: 0 auto 28px;
+  margin-top: 4px;
 }
 
 /* Load animation */
@@ -486,7 +472,7 @@ h1, h2, h3 {
 ============================================================ */
 .what-i-do {
   /* Flows from the hero — same background, no hard separator */
-  padding-top: 32px;
+  padding-top: 12px;
   padding-bottom: 88px;
 }
 
@@ -1369,6 +1355,11 @@ h1, h2, h3 {
     align-items: flex-start;
     gap: 8px;
   }
+
+  .hero {
+    padding: 72px 0 44px;
+    min-height: auto;
+  }
 }
 
 /* ============================================================
@@ -1398,6 +1389,10 @@ h1, h2, h3 {
     border-bottom: none;
   }
 
+  .hero-name {
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+  }
+  
   .hero-actions {
     flex-direction: column;
     align-items: center;
