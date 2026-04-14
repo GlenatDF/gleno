@@ -855,6 +855,95 @@ h1, h2, h3 {
 }
 
 /* ============================================================
+   WRITING
+============================================================ */
+.writing-list {
+  list-style: none;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+}
+
+.writing-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.writing-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  padding-top: 5px;
+}
+
+.writing-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.writing-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.writing-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  line-height: 1.3;
+}
+
+.writing-summary {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 66ch;
+}
+
+.writing-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: gap var(--ease), opacity var(--ease);
+}
+
+.writing-link:hover {
+  gap: 10px;
+  opacity: 0.8;
+}
+
+.writing-footer {
+  margin-top: 28px;
+  text-align: right;
+}
+
+.writing-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  transition: color var(--ease), gap var(--ease);
+}
+
+.writing-all-link:hover {
+  color: var(--text-muted);
+  gap: 10px;
+}
+
+/* ============================================================
    SKILLS
 ============================================================ */
 .skills-grid {
@@ -1257,6 +1346,19 @@ h1, h2, h3 {
   .timeline-header {
     flex-direction: column;
     gap: 4px;
+  }
+
+  .writing-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .writing-num {
+    padding-top: 0;
+  }
+
+  .writing-footer {
+    text-align: left;
   }
 
   /* Single-column capability grid on small mobile */
