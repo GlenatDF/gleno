@@ -296,11 +296,11 @@ h1, h2, h3 {
 ============================================================ */
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 64vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 80px 0 56px;
+  padding: 88px 0 64px;
 }
 
 .hero-bg {
@@ -378,6 +378,23 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
+/* Atmospheric backlight — felt behind the name, not noticed on it */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 740px;
+  height: 210px;
+  background: radial-gradient(ellipse at center,
+    rgba(156, 198, 255, 0.065) 0%,
+    rgba(130, 175, 255, 0.022) 48%,
+    transparent 72%);
+  filter: blur(32px);
+  pointer-events: none;
+}
+
 .hero-label {
   display: inline-flex;
   align-items: center;
@@ -408,16 +425,18 @@ h1, h2, h3 {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+  font-size: clamp(2.9rem, 5.5vw, 4.8rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.08;
   padding-bottom: 0.12em;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   background: linear-gradient(160deg, #f2f8ff 25%, #a8ccf0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Barely-there luminous depth — supports the backlight, not a glow effect */
+  text-shadow: 0 0 80px rgba(148, 196, 255, 0.09);
 }
 
 .hero-tagline {
@@ -501,19 +520,19 @@ h1, h2, h3 {
   transition: background 0.3s ease;
 }
 
-/* Large ghosted number — depth without noise */
+/* Large ghosted number — intentional depth element, not an afterthought */
 .wid-item::before {
   content: attr(data-num);
   position: absolute;
-  top: -14px;
-  right: 10px;
+  top: -20px;
+  right: 12px;
   font-family: var(--font-display);
-  font-size: 5.5rem;
+  font-size: 7rem;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   color: var(--heading-color);
-  opacity: 0.05;
+  opacity: 0.04;
   pointer-events: none;
   user-select: none;
 }
@@ -554,22 +573,24 @@ h1, h2, h3 {
 }
 
 .wid-desc {
-  font-size: 0.84rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
-  line-height: 1.68;
+  line-height: 1.72;
   flex: 1;
 }
 
-/* Platform credential block — contained, deliberate */
+/* Platform credential block — amber-accented, inline label */
 .wid-proof {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 28px;
   margin-top: 36px;
-  padding: 20px 24px;
-  border: 1px solid var(--border);
+  padding: 16px 22px;
+  border: 1px solid rgba(232, 150, 30, 0.14);
+  border-left: 2px solid rgba(232, 150, 30, 0.3);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.012);
+  background: rgba(232, 150, 30, 0.02);
 }
 
 .wid-proof-label {
@@ -578,6 +599,8 @@ h1, h2, h3 {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--amber);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .wid-proof-platforms {
@@ -1348,11 +1371,6 @@ h1, h2, h3 {
     margin-right: 0;
   }
 
-  .hero {
-    padding: 88px 0 64px;
-    min-height: auto;
-  }
-
   .section {
     padding: 72px 0;
   }
@@ -1382,6 +1400,12 @@ h1, h2, h3 {
 
   .writing-num {
     padding-top: 0;
+  }
+
+  .wid-proof {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   .writing-footer {
