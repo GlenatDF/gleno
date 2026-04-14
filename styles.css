@@ -296,11 +296,11 @@ h1, h2, h3 {
 ============================================================ */
 .hero {
   position: relative;
-  min-height: 68vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 88px 0 48px;
+  padding: 80px 0 56px;
 }
 
 .hero-bg {
@@ -387,7 +387,7 @@ h1, h2, h3 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .hero-dot {
@@ -408,10 +408,11 @@ h1, h2, h3 {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-size: clamp(2.8rem, 5.5vw, 4.6rem);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.96;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  padding-bottom: 0.12em;
   margin-bottom: 16px;
   background: linear-gradient(160deg, #f2f8ff 25%, #a8ccf0 100%);
   -webkit-background-clip: text;
@@ -420,11 +421,11 @@ h1, h2, h3 {
 }
 
 .hero-tagline {
-  font-size: clamp(1rem, 1.45vw, 1.06rem);
+  font-size: clamp(1rem, 1.5vw, 1.08rem);
   color: var(--text-muted);
   line-height: 1.72;
-  margin-bottom: 16px;
-  max-width: 640px;
+  margin-bottom: 20px;
+  max-width: 580px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -445,7 +446,7 @@ h1, h2, h3 {
   flex-shrink: 0;
 }
 
-hero-actions {
+.hero-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -490,12 +491,31 @@ hero-actions {
 }
 
 .wid-item {
+  position: relative;
+  overflow: hidden;
   padding: 32px 24px 28px;
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 0;
-  transition: background 0.25s ease;
+  transition: background 0.3s ease;
+}
+
+/* Large ghosted number — depth without noise */
+.wid-item::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -14px;
+  right: 10px;
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--heading-color);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
 }
 
 .wid-item:last-child {
@@ -503,12 +523,21 @@ hero-actions {
 }
 
 .wid-item:hover {
-  background: var(--bg-card);
+  background: linear-gradient(150deg, var(--bg-card-hover) 0%, var(--bg-card) 70%);
+}
+
+/* Subtle warm tint on the differentiating AI card */
+.wid-item:nth-child(4) {
+  background: rgba(232, 150, 30, 0.022);
+}
+
+.wid-item:nth-child(4):hover {
+  background: linear-gradient(150deg, rgba(232, 150, 30, 0.055) 0%, rgba(232, 150, 30, 0.028) 70%);
 }
 
 .wid-number {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   letter-spacing: 0.12em;
   color: var(--amber);
   line-height: 1;
@@ -517,29 +546,30 @@ hero-actions {
 
 .wid-title {
   font-family: var(--font-display);
-  font-size: 1.08rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  margin-bottom: 10px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
 .wid-desc {
-  font-size: 0.875rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
-  line-height: 1.72;
+  line-height: 1.68;
   flex: 1;
 }
 
-/* Platform proof line beneath the grid */
+/* Platform credential block — contained, deliberate */
 .wid-proof {
   display: flex;
-  align-items: baseline;
-  gap: 24px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 14px;
   margin-top: 36px;
-  padding: 16px 20px;
-  border-left: 2px solid var(--amber);
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.012);
 }
 
 .wid-proof-label {
@@ -548,16 +578,30 @@ hero-actions {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--amber);
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
-.wid-proof-items {
+.wid-proof-platforms {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.wid-proof-platforms li {
   font-family: var(--font-mono);
   font-size: 0.76rem;
   color: var(--text-muted);
-  letter-spacing: 0.02em;
-  line-height: 1.8;
+  letter-spacing: 0.03em;
+  line-height: 2;
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 1px solid var(--border-bright);
+}
+
+.wid-proof-platforms li:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 /* ============================================================
@@ -1342,12 +1386,6 @@ hero-actions {
 
   .writing-footer {
     text-align: left;
-  }
-
-  /* Single-column capability grid on small mobile */
-  .wid-proof {
-    flex-direction: column;
-    gap: 8px;
   }
 
   .footer-inner {
