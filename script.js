@@ -58,16 +58,17 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
+function triggerLightbox(el) {
+  const img = el.querySelector('img');
+  if (img) openLightbox(img.src, img.alt);
+}
+
 document.querySelectorAll('.project-visual').forEach((el) => {
-  el.addEventListener('click', () => {
-    const img = el.querySelector('img');
-    if (img) openLightbox(img.src, img.alt);
-  });
+  el.addEventListener('click', () => triggerLightbox(el));
   el.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      const img = el.querySelector('img');
-      if (img) openLightbox(img.src, img.alt);
+      triggerLightbox(el);
     }
   });
 });
@@ -82,11 +83,18 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================
-// Nav — subtle border tint on scroll
+// Nav — subtle border tint on scroll (rAF-throttled)
 // ============================================================
 const nav = document.getElementById('nav');
+let scrollRafPending = false;
+
 window.addEventListener('scroll', () => {
-  nav.style.borderBottomColor = window.scrollY > 10
-    ? 'rgba(37, 48, 69, 0.7)'
-    : 'var(--border)';
+  if (scrollRafPending) return;
+  scrollRafPending = true;
+  requestAnimationFrame(() => {
+    nav.style.borderBottomColor = window.scrollY > 10
+      ? 'rgba(37, 48, 69, 0.7)'
+      : 'var(--border)';
+    scrollRafPending = false;
+  });
 }, { passive: true });

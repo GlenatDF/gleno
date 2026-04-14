@@ -25,6 +25,9 @@
   --amber:         #e8961e;
   --amber-dim:     rgba(232, 150, 30, 0.1);
   --amber-glow:    rgba(232, 150, 30, 0.35);
+  --amber-text:    #150900;
+
+  --heading-color: #eaf2ff;
 
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
@@ -67,7 +70,7 @@ h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.15;
-  color: #eaf2ff;
+  color: var(--heading-color);
 }
 
 /* ============================================================
@@ -198,7 +201,7 @@ h1, h2, h3 {
 .btn-primary,
 .btn-amber {
   background: var(--amber);
-  color: #150900;
+  color: var(--amber-text);
   border-color: var(--amber);
   font-weight: 600;
 }
@@ -469,6 +472,11 @@ h1, h2, h3 {
   transition: background var(--ease), border-color var(--ease);
 }
 
+.tag:hover {
+  background: rgba(91, 163, 245, 0.11);
+  border-color: rgba(91, 163, 245, 0.26);
+}
+
 .tag-sm {
   padding: 3px 10px;
   font-size: 0.72rem;
@@ -484,12 +492,12 @@ h1, h2, h3 {
   align-items: start;
 }
 
-.about-intro {
+.about-text .about-intro {
   font-size: 1.08rem;
-  color: var(--text) !important;
+  color: var(--text);
   font-weight: 400;
-  line-height: 1.8 !important;
-  margin-bottom: 20px !important;
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
 
 .about-text p {
@@ -698,7 +706,6 @@ h1, h2, h3 {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
-  color: #eaf2ff;
   letter-spacing: -0.025em;
 }
 
@@ -812,7 +819,6 @@ h1, h2, h3 {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
-  color: #eaf2ff;
   margin-bottom: 4px;
   letter-spacing: -0.015em;
 }
@@ -898,7 +904,6 @@ h1, h2, h3 {
   font-size: 0.975rem;
   font-weight: 600;
   margin-bottom: 6px;
-  color: #eaf2ff;
   letter-spacing: -0.01em;
 }
 
