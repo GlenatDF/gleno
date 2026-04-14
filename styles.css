@@ -83,7 +83,7 @@ h1, h2, h3 {
 }
 
 .section {
-  padding: 120px 0;
+  padding: 104px 0;
 }
 
 .section-alt {
@@ -91,7 +91,7 @@ h1, h2, h3 {
 }
 
 .section-header {
-  margin-bottom: 64px;
+  margin-bottom: 52px;
 }
 
 .section-eyebrow {
@@ -296,11 +296,11 @@ h1, h2, h3 {
 ============================================================ */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 78vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 128px 0 108px;
+  padding: 104px 0 72px;
 }
 
 .hero-bg {
@@ -374,7 +374,7 @@ h1, h2, h3 {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 820px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -387,7 +387,7 @@ h1, h2, h3 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .hero-dot {
@@ -408,16 +408,11 @@ h1, h2, h3 {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  font-size: clamp(3.4rem, 8vw, 7.2rem);
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  /* Descenders (y, g, p…) extend below the tight line-height's content box.
-     padding-bottom pushes the gradient clip boundary far enough below the
-     last baseline to fully include them. margin-bottom is reduced to
-     compensate so the gap to the tagline stays the same visually. */
-  padding-bottom: 0.22em;
-  margin-bottom: 16px;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin-bottom: 22px;
   background: linear-gradient(160deg, #f2f8ff 25%, #a8ccf0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -425,11 +420,11 @@ h1, h2, h3 {
 }
 
 .hero-tagline {
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
   color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 24px;
-  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  max-width: 580px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -441,7 +436,7 @@ h1, h2, h3 {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-dim);
-  margin-bottom: 48px;
+  margin-bottom: 36px;
   letter-spacing: 0.05em;
 }
 
@@ -491,12 +486,12 @@ h1, h2, h3 {
 ============================================================ */
 .what-i-do {
   /* Flows from the hero — same background, no hard separator */
-  padding-top: 48px;
-  padding-bottom: 100px;
+  padding-top: 32px;
+  padding-bottom: 88px;
 }
 
 .wid-header {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 /* Four-column discipline grid with internal borders */
@@ -862,7 +857,7 @@ h1, h2, h3 {
 .writing-list {
   list-style: none;
   border-top: 1px solid var(--border);
-  margin-top: 48px;
+  margin-top: 36px;
 }
 
 .writing-item {
@@ -1324,16 +1319,16 @@ h1, h2, h3 {
   }
 
   .hero {
-    padding: 100px 0 80px;
+    padding: 88px 0 64px;
     min-height: auto;
   }
 
   .section {
-    padding: 80px 0;
+    padding: 72px 0;
   }
 
   .section-header {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   .skills-grid {
