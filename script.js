@@ -10,13 +10,13 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
 );
 
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
 // ============================================================
-// Nav active link — highlights the current section in the nav
+// Nav active link — highlights the current section
 // ============================================================
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -32,7 +32,7 @@ const navObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.4 }
+  { threshold: 0.35 }
 );
 
 sections.forEach((section) => navObserver.observe(section));
@@ -58,16 +58,16 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-document.querySelectorAll('.project-screenshot').forEach((el) => {
+document.querySelectorAll('.project-visual').forEach((el) => {
   el.addEventListener('click', () => {
     const img = el.querySelector('img');
-    openLightbox(img.src, img.alt);
+    if (img) openLightbox(img.src, img.alt);
   });
   el.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       const img = el.querySelector('img');
-      openLightbox(img.src, img.alt);
+      if (img) openLightbox(img.src, img.alt);
     }
   });
 });
@@ -82,11 +82,11 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================================
-// Nav shadow on scroll
+// Nav — subtle border tint on scroll
 // ============================================================
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.style.borderBottomColor = window.scrollY > 10
-    ? 'rgba(42, 64, 96, 0.6)'
+    ? 'rgba(37, 48, 69, 0.7)'
     : 'var(--border)';
 }, { passive: true });
