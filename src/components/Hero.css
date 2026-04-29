@@ -1,0 +1,31 @@
+/* Hero.css */
+
+.hero {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.hero-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  animation: fadeInScale 1.5s ease forwards;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-text {
+    animation: none;
+  }
+}
