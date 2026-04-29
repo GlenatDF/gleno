@@ -1,31 +1,39 @@
-/* Hero.css */
-
-.hero {
-  padding: 50px 20px;
-  text-align: center;
-  background-color: #f5f5f5;
+/* Base styles for the hero text */
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
 }
 
 .hero-text {
   font-size: 3rem;
-  font-weight: bold;
-  color: #333;
-  animation: fadeInScale 1.5s ease forwards;
+  animation: fadeIn 2s ease-out;
+  color: var(--text-color);
+  white-space: nowrap;
 }
 
-@keyframes fadeInScale {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* Animation keyframes */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .hero-text {
     animation: none;
   }
+}
+
+/* Idle effect: subtle opacity pulse */
+.hero-text::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
